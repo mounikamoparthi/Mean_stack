@@ -3,7 +3,56 @@
     <title> Math </title>
     </head>
     <script>
-    
+        /* 1.function zero_negativity(arr){
+            for(i=0; i<arr.length; i++){
+                if(arr[i] < 0){
+                    console.log("Found a negative no");
+                    return arr;
+                }
+
+            }
+            return true;
+        }
+        let test4 = zero_negativity([-1,-2,3]);
+        console.log(test4); */
+        /*2. function is_even(num){
+            if(num%2 == 0){
+                return true;
+            }
+            return false;
+        }
+        let test4 = is_even(13);
+        console.log(test4); */
+        /* 3.function how_many_even(array){
+            var count = 0;
+            for(i=0; i<array.length; i++){
+                if(array[i]%2 == 0){
+                    count+=1;
+                }
+                
+            }
+            return count;
+        }
+        let test4 = how_many_even([0,1,2,3,4]);
+        console.log(test4); */
+        /* 4.function create_dummy_array(n){
+            var arr = [];
+            for(i=0; i<n; i++){
+                arr.push(Math.floor((Math.random() * 10) +1))
+            }
+            return arr;
+        } 
+        let test4 = create_dummy_array(5);
+        console.log(test4); */
+            function random_choice(array){
+                for(i=0; i<array.length-1; i++){
+                   var y = array[Math.floor((Math.random() * i) +1)] 
+                   console.log(y);
+                }
+                return y;
+            }
+            let test4 = random_choice([1,2,3,4]);
+            console.log(test4); 
     </script>
 <body></body>
 </html>
