@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title> Basics II </title>
+    </head>
+    <script>
+        function magic_multiply(x, y){
+            if (typeof y === 'string' && typeof x === 'number'){
+                console.log("Error: Cannot multiply int with a string")
+            } 
+            if(x.constructor === Array){
+                console.log('Yes x is an array!');
+                
+                for(i=0; i<x.length; i++){
+                    x[i]*= y;  
+                } 
+               return x;
+            }
+           
+        }
+        let test4 = magic_multiply([1,2],3 );
+        console.log(test4);
+    </script>
+    <body></body>
+    
+</html>
