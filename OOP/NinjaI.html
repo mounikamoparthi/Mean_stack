@@ -1,0 +1,47 @@
+<html>
+    <head></head>
+    <script>
+        function Ninja(name){
+            
+            this.name = name;
+            this.health = 100;
+            var speed = 3;
+            var strength = 3;
+           
+            //Ninja.prototype.sayName = function()
+            // console.log(this.name)
+             //   return this;
+             //calling 
+             // let bob = new Ninja('bob')
+             //
+            this.sayName = function(){
+                console.log(name)
+            }
+            this.showStats = function(){
+                console.log(speed,strength,this.health)
+            }
+
+            this.drinkSake = function(){
+                this.health += 10;
+                console.log(this.health)
+            }
+        }
+            var ninja1 = new Ninja('Donaldo');
+            ninja1.sayName(); 
+            ninja1.showStats();
+            ninja1.drinkSake();
+            // class Dot {
+            // constructor(x, y){
+            //     this.x = x;
+            //     this.y = y;
+            //     console.log("You created a Dot!");
+            //     }
+            // }
+            // let dot1 = new Dot(10, 10);
+            module.exports = {          //save the file in js fomat
+                ninja = Ninja,
+                sensei = Sensei
+            }
+    </script>
+    <body></body>
+</html>

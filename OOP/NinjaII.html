@@ -1,0 +1,44 @@
+<html>
+    <head></head>
+    <script>
+        function Ninja(name){
+            
+            this.name = name;
+            this.health = 100;
+            var speed = 3;
+            var strength = 3;
+            //getter
+            this.getStrength = function(){
+                return strength
+            }
+            this.sayName = function(){
+                console.log(name)
+            }
+            this.showStats = function(){
+                console.log(speed,strength,this.health)
+            }
+
+            this.drinkSake = function(){
+                this.health += 10;
+                console.log(this.health)
+            }
+            this.punch = function(punch_ninja){
+                punch_ninja.health -= 5
+                console.log(punch_ninja.health)
+        }
+            this.kick = function(kick_ninja){
+                kick_ninja.health = kick_ninja.health - (this.getStrength() * 5)
+                console.log(kick_ninja.health)
+            }
+        }
+            var ninja1 = new Ninja('Donaldo');
+            ninja1.sayName(); 
+            ninja1.showStats();
+            ninja1.drinkSake();
+            var ninja2 = new Ninja('Leonardo');
+            ninja1.punch(ninja2);
+            ninja1.kick(ninja2);
+            
+    </script>
+    <body></body>
+</html>
