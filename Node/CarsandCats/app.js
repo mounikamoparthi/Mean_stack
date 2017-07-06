@@ -7,28 +7,28 @@ var server = http.createServer(function (request, response){
     console.log('client request URL: ', request.url);
     // this is how we do routing:
    if(request.url === '/') {
-        fs.readFile('index.html', 'utf8', function (errors, contents){
+        fs.readFile('./views/index.html', 'utf8', function (errors, contents){
             response.writeHead(200, {'Content-Type': 'text/html'});
             response.write(contents); 
             response.end();
         });
     }
     else if (request.url === "/cars") {
-         fs.readFile('./images/car1.jpg', 'utf8', function (errors, contents){
+         fs.readFile('./images/car1.jpg', function (errors, contents){
              response.writeHead(200, {'Content-type': 'image/jpg'});
              response.write(contents); 
              response.end();
          });
     }
     else if (request.url === "/cats") {
-         fs.readFile('./images/cat1.jpg', 'utf8', function (errors, contents){
+         fs.readFile('./images/cat1.jpg',function (errors, contents){
              response.writeHead(200, {'Content-type': 'image/jpg'});
              response.write(contents); 
              response.end();
          });
     }
-    else if (request.url === "/cats/new") {
-         fs.readFile('form.html', 'utf8', function (errors, contents){
+    else if (request.url === "/cars/new") {
+         fs.readFile('./views/form.html', 'utf8', function (errors, contents){
              response.writeHead(200, {'Content-type': 'text/html'});
              response.write(contents); 
              response.end();
