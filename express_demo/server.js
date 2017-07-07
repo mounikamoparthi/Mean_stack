@@ -1,10 +1,20 @@
-var express = require("express");
-var app = express();
-app.use(express.static(__dirname + "/static"));
-console.log(__dirname)
-app.get('/', function(request, response) {
-  response.send("<h1>Hello Express</h1>");
+const express = require("express")
+const path = require("path")
+
+const app = express()
+
+const PORT = 8000
+
+app.use(express.static(path.join(__dirname, "./client")));
+
+app.set("views", path.join(__dirname, "./client/views"))
+app.set("view engine", "ejs")
+
+app.get("/", (request, response) => {
+	numbers = [7, 100, 21, 19, -8]
+	response.render("index", {name: "Jack", numbers: numbers} )
 })
-app.listen(8000, function() {
-  console.log("listening on port 8000");
+
+app.listen(PORT, () => {
+	console.log(`Listening on port ${PORT}`)
 })
