@@ -17,6 +17,9 @@ app.get('/', function(req,res) {
 app.post('/result', function(req,res){
     res.render('result',{data:req.body});
 })
+app.post('/back', function(req,res){
+    res.redirect('/');
+})
 
 app.listen(8000, function() {
   console.log('listening on port 8000');
