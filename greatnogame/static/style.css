@@ -1,0 +1,57 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+#wrapper {
+	width: 1070px;
+	margin: 0px auto;
+	padding: 5px;
+	font-family: Helvetica, Verdana;
+	font-size: 11pt;
+    color: black;
+}
+#centralize {
+    margin: 200px;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid black;
+}
+h1, h2, p {
+    margin: 5px;
+}
+
+#errormessages{
+	background: #AEACB5;
+	padding: 5px;
+	margin: 5px 0px 5px 200px;
+	border: 1px dotted black;
+	border-radius: 2px;
+	width: 200px;
+	text-align: center;
+}
+
+#toohigh{
+	background: #C4687F;
+	padding: 5px;
+	margin: 5px 0px 5px 200px;
+	border: 1px  black;
+	border-radius: 2px;
+	width: 200px;
+	text-align: center;
+}
+
+#correct{
+	background: #68C495;
+	padding: 5px;
+	margin: 5px 0px 5px 200px;
+	border: 1px black;
+	border-radius: 2px;
+	width: 200px;
+	text-align: center;
+}
+
+.button{
+	margin: 10px;
+	font-size: 12px;
+	border-radius: 3px;
+	background-color: transparent;
