@@ -10,9 +10,21 @@ app.use(session({secret: 'codingdojo'}));
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
 
+
 app.get('/', function(req, res) {
-  req.session.counter += 1;
+  if (req.session.counter == null){
+    req.session.counter = 0;
+  }
+  req.session.counter++
  res.render("index",{count:req.session.counter});
+})
+app.post('/add1', function(req, res) {
+ req.session.counter++
+ res.redirect('/');
+})
+app.post('/reset', function(req, res) {
+ req.session.counter=0
+ res.redirect('/');
 })
 
 app.listen(8000, function() {
