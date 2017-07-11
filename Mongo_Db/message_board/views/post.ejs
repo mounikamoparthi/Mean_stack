@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">-->
+        <title>The Wall! </title>
+    </head>
+    <body>
+                <h1>Welcome to the wall!</h1>
+                    <form action='/posts' method="post">
+                            Your name: <input type="text" name="name">
+                            Message: <input type="text" name="message">
+                            <input type="submit" value="Post it!">
+                    </form>
+                
+    </body>
+</html>
