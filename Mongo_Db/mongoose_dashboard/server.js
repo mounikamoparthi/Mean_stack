@@ -21,7 +21,6 @@ mongoose.model('Bird',MongooseSchema);
 var Bird = mongoose.model('Bird');
 
 app.get('/', function(req,res) {
-    console.log("ghjk")
    Bird.find({}, function(error, results){
         if(error){
             console.log("Error")
