@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">-->
+        <title>The Wall! </title>
+    </head>
+    <body>
+        <h1>Welcome to the wall!</h1>
+              <% if(errors) { %>
+                <h1>***All fields are reqiured ****</h1>
+                <% } %>
+              
+                    <form action='/message' method="post">
+                            Name: <br> 
+                            <input type="text" name="name"><br>
+                            Message:<br>
+                            <textarea cols="40" rows="7" name="message"></textarea><br>
+                            <input type="submit" value="Post Message">
+                    </form>
+                <div id = "postmsg">
+                    <% for(let i=0; i< postmsg.length; i++) { %>
+                        <h4> Name:<%= postmsg[i].name %></h4>
+                        <h4> Message:<%= postmsg[i].messagetext %></h4>
+                        
+                         <% for (let j=0; j< postmsg[i].comments.length; j++) { %>
+                            <h5>Name:<%= postmsg[i].comments[j].name %></h5>
+                            <h5>Comment:<%= postmsg[i].comments[j].commenttext %></h5>
+                         <% } %>
+                    <form action= '/comment' method = "post">
+                        Name:<br>
+                        <input type="text" name="name"><br>
+                        Comment:<br>
+                        <textarea cols="50" rows="5" name="comment"></textarea><br>
+                        <input type="hidden" name="msgid" value=<%=postmsg[i].id %>>
+                        <input type="submit" value="Add Comment">
+                    </form>
+                </div>
+                <% } %>
+
+                
+    </body>
+</html>
