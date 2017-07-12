@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 var Person = mongoose.model('Person');
+mongoose.Promise = global.Promise;
+
 module.exports = {
-	show: function(req, res) {
+	index: function(req, res) {
         Person.find({}, function(err,people){
             console.log(people);
             res.json(people) 
@@ -17,18 +19,27 @@ module.exports = {
         res.redirect('/') 
     },
     remove: function(req, res) {
-        Person.remove({name:new RegExp('^'+req.params.name+'$', "i")}, function(err){
-            res.redirect('/');    
+        Person.remove({name: req.params.name}, function(err){
+            if(err){
+                console.log("Removing:" +err);
+            }
+            else{
+            res.redirect('/');
+            }    
         });
     },
 
 
     details: function(req, res) {
-        person.find({name: new RegExp('^'+req.params.name+'$', "i")}, function(err,person){
-            console.log(person)
-            res.redirect('/');    
-        });
-    },
+        Person.findOne({name: req.params.name}, function(err,person){
+             if (err) {
+                res.json(err);
+            }
+            else {
+                res.json(person);
+            }
+    })
+  },
 }
 
 

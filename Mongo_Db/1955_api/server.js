@@ -5,6 +5,7 @@ var app = express();
 // require bodyParser since we need to handle post data for adding a user
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // static content 
 app.use(express.static(path.join(__dirname, "./static")));
 // setting up ejs and our views folder
