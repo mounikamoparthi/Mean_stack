@@ -3,12 +3,13 @@
         <title></title>
     </head>
     <body>
-		<div class="mongeese">
-			<% for(let i=0; i< results.length; i++){ %>
-				<h3>Name: <%= results[i].name %></h3>	
-				<h5>Type: <%= results[i].type %></h5>
-				<h5>Color: <%= results[i].color %></h5>
-				{ %>
+		<h1> Welcome </h1>
+		
+			<% for(let i=0; i< Bird.length; i++){ %>
+				<h3>Name: <%= Bird[i].name %></h3>	
+				<h5>Type: <%= Bird[i].type %></h5>
+				<h5>Color: <%= Bird[i].color %></h5>
+			<% } %>
 
     </body>
 </html>
