@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-
+const bcrypt = require('bcrypt');
 const LoginSchema = new mongoose.Schema({
     name: {
-        first: {
+        first_name: {
           type: String,
           required: true,
           minlength: [2, "First name should be at least 2 characters"],
@@ -15,7 +15,7 @@ const LoginSchema = new mongoose.Schema({
       }]
     }
     },
-        last: {
+        last_name: {
           type: String,
           minlength: [2, "Last name should be at least 2 characters"],
           trim: true,
@@ -26,7 +26,7 @@ const LoginSchema = new mongoose.Schema({
             message: "Last name should only be letters"
       }]
       },
-      email: {
+      emailid: {
           type: String,
           requires: [true, "Email cannot be blank"],
           trim:true,
@@ -38,6 +38,16 @@ const LoginSchema = new mongoose.Schema({
               message: "email not in proper format"
           }
       },
+      birthday: {
+        type: Date,
+        required: true,
+        validate: [{
+        validator: (bd) => {
+            return bd < Date.now();
+        },
+        message: "You haven't been born yet?"
+        }]
+     },
       password: {
         type: String,
         required: true,
@@ -58,6 +68,7 @@ LoginSchema.virtual( 'name.full' ).get( function () {
 });
 
 LoginSchema.pre('save', function(done){
+    this.email = this.email.toLowerCase();
     this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync(8));
     console.log(this.password)
     done();

@@ -5,9 +5,15 @@
    
     </head>
     <body>
-        
+        <% if (typeof(error) != 'undefined') { %>
+      <p class="error"><%= error %></p>
+        <% } else if (typeof(errors) != 'undefined') { %>
+        <% for (let x in errors.errors) { %>
+            <p class="error"><%= errors.errors[x] %></p>
+        <% } %>
+        <% } %>
         <div id = "register">
-            <form action= "/register" method ="post">
+            <form action= "/login" method ="post">
             {% csrf_token %}
             <p>
             <label for="first_name">FirstName:</label>
@@ -22,6 +28,10 @@
             <input type="email" id ="emailid" name="emailid">
 
             </p><p>
+            <label for="birthday"> Birthday: </label>
+            <input type="date" name="birthday" value="">
+            </p>
+            <p>
             <label for="password">Password:</label>
             <input type="password" id ="password" name="password">
             </p>
@@ -32,22 +42,9 @@
             <input type = "hidden" name = "action" value="Register">
             <input  type="submit" value="Register">
             </form>
+            <br> 
+            <a href= "/login"> Already Registeres? Log in here </a>
         </div>
-        <div id = "login">
-            <h1> Login </h1>
-            <form action="/login" method ="post">
-            {% csrf_token %}
-                <p>
-                <label for="emailid">Email Id:</label>
-                <input type="email" id ="emailid" name="emailid"
-                </p><p>
-                <label for="password">Password:</label>
-                <input type="password" id ="password" name="password"
-                </p><p>
-                <input type = "hidden" name = "action" value="Login">
-                <input  type="submit" value="Login">
-                </p>
-            </form>
-        </div>
+        
     </body>
 </html>
