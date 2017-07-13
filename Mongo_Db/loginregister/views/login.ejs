@@ -5,8 +5,10 @@
     <body>
         <div id = "login">
             <h1> Login </h1>
-            <form action="/success" method ="post">
-            {% csrf_token %}
+            <% if (typeof(error) != 'undefined') { %>
+            <p class="rederror"><%= error %></p>
+            <% } %>
+            <form action="/login" method ="post">
                 <p>
                 <label for="emailid">Email Id:</label>
                 <input type="email" id ="emailid" name="emailid"
@@ -18,6 +20,8 @@
                 <input  type="submit" value="Login">
                 </p>
             </form>
+            <br>
+            <a href="/">Not registered yet? Register here.</a>
         </div>
     </body>
 </html>

@@ -5,28 +5,30 @@ mongoose.Promise = global.Promise;
 
 module.exports = {
     index:(req,res) => {
-        console.log(req.body);
+        console.log("Entered", req.body);
         if(req.body.password != req.body.reenterpassword){
             res.render('index',{error: "Passwords does not match"});
         }
         else{
             let newUser = new Login(
                 {name: {first_name:req.body.first_name,last_name: req.body.last_name},
-                emailid: req.body.emailid,
+                emailid: req.body.emailid, birthday: req.body.birthday,
                 password: req.body.password})
                 
-            let promise = user.save();
-            promise.then((doc) =>{
-                res.redirect('/register');
+            let promise = newUser.save(function(err, user){
+                if(err){
+                    console.log("save error", err);
+                    console.log(err['name'])
+                    res.render('index', {errors: err})
+                } else {
+                    console.log("register success")
+                    res.redirect('/success')
+                }
             })
-            .catch(err =>{
-                console.log("index error",err)
-                res.render('index', {errors:err})
-            })
-    }
+        }
 },
     login: function(req,res){
-        Login.findOne({emailid: req.body.emailid.toLowerCase()},(err, user) => {
+        Login.findOne({emailid: req.body.emailid},(err, user) => {
             if(err){
                 res.render('login',{error:err});
             }

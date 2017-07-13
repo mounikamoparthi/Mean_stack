@@ -5,6 +5,7 @@
    
     </head>
     <body>
+        <h1> Registration Form </h1>
         <% if (typeof(error) != 'undefined') { %>
       <p class="error"><%= error %></p>
         <% } else if (typeof(errors) != 'undefined') { %>
@@ -13,8 +14,7 @@
         <% } %>
         <% } %>
         <div id = "register">
-            <form action= "/login" method ="post">
-            {% csrf_token %}
+            <form action= "/register" method ="post">
             <p>
             <label for="first_name">FirstName:</label>
             <input type="text" id ="firstname" name="first_name">
@@ -33,7 +33,7 @@
             </p>
             <p>
             <label for="password">Password:</label>
-            <input type="password" id ="password" name="password">
+            <input type="password" id ="password" name="password" value="Asdfgh!12">
             </p>
             <p>
             <label for="reenterpassword">Reenter Password:</label>
@@ -43,7 +43,7 @@
             <input  type="submit" value="Register">
             </form>
             <br> 
-            <a href= "/login"> Already Registeres? Log in here </a>
+            <a href= "/login"> Already Registered? Log in here </a>
         </div>
         
     </body>
